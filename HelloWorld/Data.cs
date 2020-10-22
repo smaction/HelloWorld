@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data.OleDb;
 
 namespace HelloWorld
 {
@@ -12,6 +13,18 @@ namespace HelloWorld
         {
             loadData();
         }
+        private void loadDb()
+        {
+            const string CONNECTIONSTRING = @"Provider=sqloledb; Data Source=(local)\SQLExpress; Integrated Security=SSPI; Integrated Security=SSPI; Initial Catalog=Horses";
+            horses = new List<Horse>();
+            using (var connection = new OleDbConnection(CONNECTIONSTRING))
+
+            {
+
+            }
+        }
+        
+        
         private void loadData()
         {
             const string DATAFILE = "data.csv";
